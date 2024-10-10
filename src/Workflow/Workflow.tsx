@@ -1,9 +1,9 @@
 import ReactFlow, { addEdge, Background, Connection, Controls, useEdgesState, useNodesState } from "reactflow";
 import "reactflow/dist/style.css";
-import { Box } from "@chakra-ui/react";
+
 import { useCallback } from "react";
 import { initialEdges, initialNodes } from "./workflowConfig";
-import nodeSelect from "./nodeSelect";
+// import nodeSelect from "./nodeSelect";
 import nodeInput from "./nodeInput";
 import nodeLLM from "./nodeLLM";
 import CustomEdge from "./CustomEdge";
@@ -13,7 +13,7 @@ const nodeTypes = {
     nodeInput: nodeInput,
     nodeLLM: nodeLLM,
     nodeOutput: nodeOutput,
-    nodeSelect: nodeSelect,
+    // nodeSelect: nodeSelect,
 };
 
 const edgeTypes = {
@@ -39,7 +39,7 @@ export const Workflow = () => {
 
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <Box height="500px" width="500px" border="1px solid black">
+            <div style={{ height: "500px", width: "500px", border: "1px solid black" }}>
                 <ReactFlow
                     nodes={nodes}
                     edges={edges}
@@ -53,7 +53,7 @@ export const Workflow = () => {
                     <Background />
                     <Controls />
                 </ReactFlow>
-            </Box>
+            </div>
         </div>
     );
 };

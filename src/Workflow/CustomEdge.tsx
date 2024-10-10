@@ -1,6 +1,5 @@
-import { IconButton } from "@chakra-ui/react";
 import React from "react";
-import { X } from "react-bootstrap-icons";
+
 import { BezierEdge, EdgeLabelRenderer, EdgeProps, getBezierPath, useReactFlow } from "reactflow";
 
 export default function CustomEdge(props: EdgeProps) {
@@ -21,17 +20,20 @@ export default function CustomEdge(props: EdgeProps) {
         <>
             <BezierEdge {...props} />
             <EdgeLabelRenderer>
-                <IconButton
+                <div
                     aria-label="Delete Edge"
-                    pos="absolute"
-                    icon={<X />}
-                    color="red"
-                    transform={`translate(-50%, -50%) translate(${labelX}px, ${labelY}px)`}
-                    pointerEvents="all"
-                    bg="transparent"
-                    size="small"
+                    style={{
+                        position: "absolute",
+                        transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)`,
+                        pointerEvents: "all",
+                        background: "transparent",
+                        color: "red",
+                        cursor: "pointer",
+                    }}
                     onClick={() => setEdges((prevEdges) => prevEdges.filter((edge) => edge.id !== id))}
-                />
+                >
+                    X
+                </div>
             </EdgeLabelRenderer>
         </>
     );
